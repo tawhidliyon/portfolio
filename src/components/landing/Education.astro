@@ -1,0 +1,76 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Data
+const education = [
+  {
+    period: "2020–2022",
+    title: "Master's in Design Studies",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
+    location: "University of Lorem Ipsum, Rome, Italy",
+  },
+  {
+    period: "2016–2020",
+    title: "Bachelor's in Visual Arts",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.`,
+    location: "College of Dolor Sit, Milan, Italy",
+  },
+  {
+    period: "2014–2016",
+    title: "Diploma in Creative Fundamentals",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+    location: "Institute of Consectetur, Venice, Italy",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="base" class="py-12">
+    <Text
+      tag="h3"
+      variant="textBase"
+      class="font-semibold text-zinc-900 dark:text-zinc-200"
+    >
+      Education
+    </Text>
+
+    <div class="flex flex-col gap-12 mt-8">
+      {
+        education.map((work, index) => (
+          <div class="grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-5">
+            {/* Period */}
+            <Text tag="span" variant="textSM" class="font-medium text-zinc-500">
+              {work.period}
+            </Text>
+
+            {/* Work Content */}
+            <div class="lg:col-span-4">
+              <Text
+                tag="h4"
+                variant="textBase"
+                class="font-semibold text-zinc-900 dark:text-zinc-200  flex justify-between w-full"
+              >
+                {work.title}
+              </Text>
+              <Text
+                tag="p"
+                variant="textSM"
+                class="text-zinc-600 dark:text-zinc-500  mt-2"
+              >
+                {work.description}
+              </Text>
+              <Text
+                tag="p"
+                variant="textSM"
+                class="text-zinc-600 dark:text-zinc-500  mt-2"
+              >
+                {work.location}
+              </Text>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

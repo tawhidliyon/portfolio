@@ -1,0 +1,102 @@
+---
+// Images
+import { Image } from "astro:assets";
+import Avatar from "@/images/avatar.jpg";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const links = [
+  {
+    label: "LinkedIn",
+    url: "https://linkedin.com/tawhidislamliyon",
+    text: "@tawhidislamliyon",
+  },
+  {
+    label: "GitHub",
+    url: "https://github.com/tawhidliyon",
+    text: "@tawhidliyon",
+  },
+  {
+    label: "Facebook",
+    url: "https://facebook.com/tawhidislamliyon",
+    text: "@tawhidislamliyon",
+  },
+  {
+    label: "Mail",
+    url: "mailto://tawhidislamliyon@gmail.com",
+    text: "tawhidislamliyon@gmail.com",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="base" class="lg:pt-24">
+    <div class="flex items-center space-x-4">
+      <Image
+        src={Avatar}
+        alt="avatar"
+        width="1000"
+        height="1000"
+        class="size-24 rounded-full object-cover ring ring-zinc-200 dark:ring-zinc-800"
+      />
+      <div>
+        <Text
+          tag="h1"
+          variant="textBase"
+          class="font-semibold text-zinc-900 dark:text-zinc-200"
+          >Tawhid Islam Liyon</Text
+        >
+        <Text
+          tag="p"
+          variant="textSM"
+          class="text-sm text-zinc-600 dark:text-zinc-400"
+          >ML engineer in Bangladesh</Text
+        >
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <Text
+        tag="h2"
+        variant="textSM"
+        class="font-medium text-zinc-900 dark:text-zinc-200">About</Text
+      >
+      <Text tag="p" variant="textSM" class="text-zinc-500 mt-4">
+        Building the Future with Machine Learning | Deep Learning | Math Enthusiast | Skilled in Python, Mathematica, MATLAB, Adobe Suite & Web Development | Exploring AI, One Step at a time
+      </Text>
+    </div>
+
+    <div class="mt-8 lg:mt-24">
+      <Text
+        tag="h2"
+        variant="textSM"
+        class="font-semibold text-zinc-900 dark:text-zinc-200">Contact</Text
+      >
+      <div class="mt-5">
+        <ul class="lg:col-span-4">
+          {
+            links.map((link) => (
+              <li class="flex mb-2">
+                <Text
+                  tag="span"
+                  variant="textSM"
+                  class=" grow-1 font-medium text-zinc-900 dark:text-zinc-200"
+                >
+                  {link.label}
+                </Text>
+                <Text
+                  tag="a"
+                  variant="textSM"
+                  href={link.url}
+                  class=" text-zinc-500 hover:underline lg:col-span-4"
+                >
+                  {link.text} ↗
+                </Text>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </Wrapper>
+</section>

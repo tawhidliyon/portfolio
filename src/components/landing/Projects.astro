@@ -1,0 +1,68 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Images
+const projects = [
+  {
+    year: "2025",
+    title: "Lorem Framework",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.`,
+  },
+  {
+    year: "2024",
+    title: "Ipsum Design",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.`,
+  },
+  {
+    year: "2023",
+    title: "Dolor Principles",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.`,
+  },
+  {
+    year: "2022",
+    title: "Sit Amet Font",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.`,
+  },
+];
+---
+
+<section>
+  <Wrapper variant="base">
+    <Text
+      tag="h3"
+      variant="textBase"
+      class="font-semibold text-zinc-900 dark:text-zinc-200"
+    >
+      Projects
+    </Text>
+    {
+      projects.map((project) => (
+        <div class="grid grid-cols-1 mt-8 gap-4 md:grid-cols-2 lg:grid-cols-5">
+          {/* Year */}
+          <Text tag="span" variant="textSM" class="font-medium text-zinc-500">
+            {project.year}
+          </Text>
+
+          {/* Project Content */}
+          <div class="lg:col-span-4">
+            <Text
+              tag="h4"
+              variant="textBase"
+              class="font-semibold text-zinc-900 dark:text-zinc-200 "
+            >
+              {project.title}
+            </Text>
+            <Text
+              tag="p"
+              variant="textSM"
+              class="text-zinc-600 dark:text-zinc-500  mt-2"
+            >
+              {project.description}
+            </Text>
+          </div>
+        </div>
+      ))
+    }
+  </Wrapper>
+</section>

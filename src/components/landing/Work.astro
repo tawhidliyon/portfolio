@@ -1,0 +1,81 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Data
+const work = [
+  {
+    period: "2023–2025",
+    title: "Lorem Ipsum Exhibition",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.`,
+    location: "Rome, Italy",
+    link: "#_", // Placeholder link
+  },
+  {
+    period: "2020–2023",
+    title: "Dolor Sit Amet Redesign",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.`,
+    location: "Milan, Italy",
+    link: "#_", // Placeholder link
+  },
+  {
+    period: "2017–2020",
+    title: "Consectetur Principles",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.`,
+    location: "Venice, Italy",
+    link: "#_", // Placeholder link
+  },
+];
+---
+
+<section>
+  <Wrapper variant="base" class="py-12">
+    <Text
+      tag="h3"
+      variant="textBase"
+      class="font-semibold text-zinc-900 dark:text-zinc-200"
+    >
+      Work
+    </Text>
+
+    <div class="flex flex-col gap-12 mt-8">
+      {
+        work.map((work, index) => (
+          <div class="grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-5">
+            {/* Period */}
+            <Text tag="span" variant="textSM" class="font-medium text-zinc-500">
+              {work.period}
+            </Text>
+
+            {/* Work Content */}
+            <div class="lg:col-span-4">
+              <a href={work.link}>
+                <Text
+                  tag="h4"
+                  variant="textBase"
+                  class="font-semibold text-zinc-900 dark:text-zinc-200  flex justify-between w-full"
+                >
+                  {work.title} ↗
+                </Text>
+              </a>
+              <Text
+                tag="p"
+                variant="textSM"
+                class="text-zinc-600 dark:text-zinc-500  mt-2"
+              >
+                {work.description}
+              </Text>
+              <Text
+                tag="p"
+                variant="textSM"
+                class="text-zinc-600 dark:text-zinc-500  mt-2"
+              >
+                {work.location}
+              </Text>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>
